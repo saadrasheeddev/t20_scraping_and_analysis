@@ -321,7 +321,7 @@ def fetch_data_from_url(url):
 def show_dashboard(df):
 
     teams = sorted(set(df["Team Bat First"]).union(set(df["Team Bat Second"])))
-    selected_team = st.selectbox("Select a team to analyze", ["Select Team"] + teams)
+    selected_team = st.selectbox("Select a team to analyze", teams)
 
     # Let's Extract Exact match result from the "Result" column
     # Currently "Result" column values look like this "Pakistan won by 51 runs"
@@ -716,7 +716,7 @@ def main():
                     st.write(st.session_state.data)
                     st.session_state.data_extracted = True
 
-            if st.session_state.data is not None:
+            if st.session_state.data_extracted:
                 st.write(st.session_state.data)
         
         with col2:
