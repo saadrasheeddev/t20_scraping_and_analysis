@@ -7,6 +7,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import json
+import google.generativeai as genai
+
+GEMINI_API_KEY = "AIzaSyAYSaidaY8gNQpKZe56TXpOvaaaC9nETGs"
+
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel('models/gemini-pro')
 
 class MatchScorecard:
     def __init__(self, venue, match_no, team_bat_first, first_innings_score, team_bat_second, second_innings_score, result):
@@ -329,7 +335,24 @@ def show_dashboard(df):
 
     for index, record in enumerate(df_filtered["Result"]):
 
-        if selected_team in record:
+        result = model.generate_content(
+            f"""
+            In the statement below,
+            Did {selected_team} won the match? if {selected_team} won the match,
+            Return "True" 
+            
+            Statement: {record}
+            Return: 
+            """
+        )
+
+        result_text = result.text.replace(" ", "").replace("\n", "").replace("\t", "")
+
+        result_text = result_text.lower()
+
+        print(result_text)
+
+        if selected_team in record or result_text == "true":
             df_filtered.at[index, "Match Result"] = "Won"
         elif "tied" in record:
             df_filtered.at[index, "Match Result"] = "Tied"
