@@ -358,6 +358,8 @@ def show_dashboard(df):
             df_filtered.at[index, "Match Result"] = "Tied"
         elif "No result" in record:
             df_filtered.at[index, "Match Result"] = "No Result"
+        elif "abandoned" in record:
+            df_filtered.at[index, "Match Result"] = "Abandoned"
         else:
             df_filtered.at[index, "Match Result"] = "Lost"
 
