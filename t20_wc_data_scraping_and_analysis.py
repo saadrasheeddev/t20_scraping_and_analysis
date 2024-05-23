@@ -708,12 +708,16 @@ def main():
         col1, col2 = st.columns([3, 1])
         
         with col1:
+
             if st.button("Extract Data"):
                 st.subheader(f"Extracting Data from {url_input}.")
                 with st.spinner('Extracting data... It may take 2-3 minutes'):
                     st.session_state.data = fetch_data_from_url(url_input)
                     st.write(st.session_state.data)
                     st.session_state.data_extracted = True
+
+            if st.session_state.data is not None:
+                st.write(st.session_state.data)
         
         with col2:
             if st.session_state.data_extracted:
