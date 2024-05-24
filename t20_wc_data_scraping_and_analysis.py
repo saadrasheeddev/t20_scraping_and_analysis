@@ -212,7 +212,10 @@ def extract_over_by_over_score(href_link):
     for row in rows:
         over = {}
         over["Over"] = row.findAll('td')[0].text
-        team_1 = row.findAll('td')[1]
+        if len(row.findAll('td')) > 2:
+            team_1 = row.findAll('td')[1]
+        else:
+            continue
         if team_1.text == "-":
             continue
         score = team_1.find('div', class_="ds-pt-1").find('div', class_="ds-text-tight-m").find('div', class_="ds-text-typo").text
@@ -223,7 +226,10 @@ def extract_over_by_over_score(href_link):
     for row in rows:
         over = {}
         over["Over"] = row.findAll('td')[0].text
-        team_2 = row.findAll('td')[2]
+        if len(row.findAll('td')) > 2:
+            team_2 = row.findAll('td')[2]
+        else:
+            continue
         if team_2.text == "-":
             continue
         score = team_2.find('div', class_="ds-pt-1").find('div', class_="ds-text-tight-m").find('div', class_="ds-text-typo").text
