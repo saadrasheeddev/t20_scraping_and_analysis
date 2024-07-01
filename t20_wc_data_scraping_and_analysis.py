@@ -9,7 +9,7 @@ from plotly.subplots import make_subplots
 import json
 import google.generativeai as genai
 
-GEMINI_API_KEY = "AIzaSyAYSaidaY8gNQpKZe56TXpOvaaaC9nETGs"
+GEMINI_API_KEY = "AIzaSyBsQGfq3iEOdjndcYDE2-pBWTvmY94FK2w"
 
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('models/gemini-pro')
