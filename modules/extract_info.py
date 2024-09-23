@@ -1,4 +1,9 @@
-import find_date, extract_teams, extract_scores, extract_bat_bowl_figures, extract_over_by_over_score
+from .find_date import find_date
+from .extract_teams import extract_teams
+from .extract_scores import extract_scores
+from .extract_bat_bowl_figures import extract_bat_bowl_figures
+from .extract_over_by_over_score import extract_over_by_over_score
+
 from models import MatchScorecard
 
 def extract_info(html_content, index):

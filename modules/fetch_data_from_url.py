@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-import extract_info
+from .extract_info import extract_info
 
 def fetch_data_from_url(url):
     response = requests.get(url)
