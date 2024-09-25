@@ -162,7 +162,7 @@ def main():
         st.session_state.show_dashboard = False
 
     with st.container():
-        st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+        # st.markdown("<div class='main-container'>", unsafe_allow_html=True)
 
         if not st.session_state.show_dashboard:
             st.markdown("<h1 class='title'>Extract Cricket Tournament Data</h1>", unsafe_allow_html=True)
@@ -207,7 +207,7 @@ def main():
 
             show_dashboard(st.session_state.data)
 
-        st.markdown("</div>", unsafe_allow_html=True)
+        # st.markdown("</div>", unsafe_allow_html=True)
 
 # Run the app
 if __name__ == '__main__':

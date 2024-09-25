@@ -74,6 +74,10 @@ def dashboard_css():
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+                
+        .st-emotion-cache-13ln4jf{
+            max-width: 80%;    
+        }
     </style>
     """, unsafe_allow_html=True)
 
