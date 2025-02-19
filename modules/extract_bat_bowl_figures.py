@@ -6,8 +6,12 @@ def extract_bat_bowl_figures(href_link):
     innings = []
 
     href_link = f'https://www.espncricinfo.com{href_link}'
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+    }
     
-    response = requests.get(href_link)
+    response = requests.get(href_link, headers=headers)
     if response.status_code != 200:
         return innings
     
