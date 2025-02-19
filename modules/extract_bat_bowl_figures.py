@@ -33,8 +33,8 @@ def extract_bat_bowl_figures(href_link):
                 continue
             rows = batting_score_body.findAll('tr', class_=lambda x: x != 'ds-hidden')
 
-            if rows and rows[-2].find('td').text.split(" ")[0] == "Did":
-                del rows[-2]
+            # if rows and rows[-2].find('td').text.split(" ")[0] == "Did":
+            #     del rows[-2]
             
             batting = []
 
